@@ -1,0 +1,35 @@
+<head>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+</head>
+<style> 
+    a:focus {outline: none !important;}
+    a:hover {text-decoration: none;}
+</style>
+
+<h1 style="text-align: center;padding: 1px;">{{.Symbol}}</h1>
+<div style="padding: 50px;font-family:inter;">
+<table id="fancytable" class="display">
+    <thead style="color: #ffffff;background:black;">
+        <th style="width:100px ;">Symbol</th>
+        <th style="width:250px ;">Purpose</th>
+        <th style="width:150px ;">Board Meeting Date</th>
+        <th>Details</th>
+    </thead>
+    <tbody>
+        {{ range $key, $value := .Meets}}
+            <tr>
+                <td>{{ $key.Symbol }}</td>
+                <td>{{ $value.Purposes }}</td>
+                <td style="text-align: center;">{{ $value.BoardMeetingDates }}</td>
+                <td>{{ $value.Detail }}</td>
+            </tr>
+        {{end}}
+    </tbody>
+</table>
+</div>
+
+<script>$(document).ready(function() {
+    $('#fancytable').DataTable();
+} );</script>  
