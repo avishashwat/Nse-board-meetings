@@ -9,5 +9,7 @@
 - Clone this repository to your filesystem.
 
 - `cd` into it and run the following command: `make` to start the server on port 8000.
+                            OR
+- execute `main.exe` to the start the server on port 8000
 
 - View http://localhost:8000 in your browser.
