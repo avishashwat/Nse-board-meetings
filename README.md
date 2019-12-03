@@ -8,6 +8,6 @@
 
 - Clone this repository to your filesystem.
 
-- `cd` into it and run the following command: `go run main.go` to start the server on port 8000.
+- `cd` into it and run the following command: `make` to start the server on port 8000.
 
 - View http://localhost:8000 in your browser.
