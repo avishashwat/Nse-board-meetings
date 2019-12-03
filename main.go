@@ -17,13 +17,13 @@ type Meeting struct {
 	Purpose          string
 	BoardMeetingDate string
 	DisplayDate      string
-	seqId            string
+	SeqId            string
 	Details          string
 }
 
 type MeetingsMapResults struct {
-	Purposes          string
-	BoardMeetingDates string
+	Purpose          string
+	BoardMeetingDate string
 	Detail            string
 }
 type MeetingsMapKeys struct {
@@ -71,13 +71,11 @@ func createSliceOfMeetings(meeting []string) []Meeting {
 
 	for i := 0; i < len(meeting); i++ {
 		for index := 0; index < len(strings.Split(meeting[0], sprtr)); index++ {
-			temp := strings.SplitN(strings.Split(meeting[i], sprtr)[index], ":", 2)[1][1:]
-			temps = append(temps, temp)
+			temps = append(temps, strings.SplitN(strings.Split(meeting[i], sprtr)[index], ":", 2)[1][1:])
 		}
 		arrayOfAttributes := temps[(i * totalAttributes) : (i*totalAttributes)+totalAttributes]
 		if strings.HasSuffix(arrayOfAttributes[8], "\"") {
-			strlen := len(arrayOfAttributes[8])
-			arrayOfAttributes[8] = (arrayOfAttributes[8])[:(strlen - 1)]
+			arrayOfAttributes[8] = (arrayOfAttributes[8])[:(len(arrayOfAttributes[8]) - 1)]
 		}
 		indiviualMeetingStruct := Meeting{arrayOfAttributes[0], arrayOfAttributes[1], arrayOfAttributes[2], arrayOfAttributes[3], arrayOfAttributes[4], arrayOfAttributes[5], arrayOfAttributes[6], arrayOfAttributes[7], arrayOfAttributes[8]}
 		allMeeting = append(allMeeting, indiviualMeetingStruct)

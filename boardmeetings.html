@@ -21,8 +21,8 @@
         {{ range $key, $value := .Meets}}
             <tr>
                 <td>{{ $key.Symbol }}</td>
-                <td>{{ $value.Purposes }}</td>
-                <td style="text-align: center;">{{ $value.BoardMeetingDates }}</td>
+                <td>{{ $value.Purpose }}</td>
+                <td style="text-align: center;">{{ $value.BoardMeetingDate }}</td>
                 <td>{{ $value.Detail }}</td>
             </tr>
         {{end}}
